@@ -9,19 +9,26 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var diceImage: ImageView
+    private lateinit var rollButton: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.i("main", "on create")
 
+        // set content
         setContentView(R.layout.activity_main)
-        val rollButton = findViewById<Button>(R.id.roll_button)
+
+        // init late init variables
+        diceImage = findViewById(R.id.dice_image)
+        rollButton = findViewById(R.id.roll_button)
+
         rollButton.setOnClickListener { rollDice() }
         rollDice()
     }
 
     private fun rollDice() {
         val randomInt = Random().nextInt(6) + 1
-        val diceImage = findViewById<ImageView>(R.id.dice_image)
         diceImage.setImageResource(getDiceImage(randomInt))
     }
 
