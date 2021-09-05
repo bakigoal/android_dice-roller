@@ -1,10 +1,11 @@
 package com.bakigoal.diceroller
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
-import android.widget.Toast
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,9 +15,13 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
         val rollButton = findViewById<Button>(R.id.roll_button)
-        rollButton.setOnClickListener {
-            Toast.makeText(this, "button clicked", Toast.LENGTH_SHORT).show()
-        }
+        rollButton.setOnClickListener { rollDice() }
+    }
+
+    private fun rollDice() {
+        val randomInt = Random().nextInt(6) + 1
+        val resultText = findViewById<TextView>(R.id.result_text)
+        resultText.text = randomInt.toString()
     }
 
     override fun onStart() {
