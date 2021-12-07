@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import java.util.*
+import kotlin.math.log
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,6 +30,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun rollDice() {
         val randomInt = Random().nextInt(6) + 1
+        Log.d("RANDOM_VALUE", "random value $randomInt")
         diceImage.setImageResource(getDiceImage(randomInt))
     }
 
