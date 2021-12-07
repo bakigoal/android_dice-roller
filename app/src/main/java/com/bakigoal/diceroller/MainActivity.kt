@@ -28,13 +28,11 @@ class MainActivity : AppCompatActivity() {
         rollDice()
     }
 
-    private fun rollDice() {
-        val randomInt = Random().nextInt(6) + 1
-        Log.d("RANDOM_VALUE", "random value $randomInt")
-        diceImage.setImageResource(getDiceImage(randomInt))
-    }
+    private fun rollDice() = diceImage.setImageResource(getRandomDiceImage())
 
-    private fun getDiceImage(i: Int): Int = when (i) {
+    private fun getRandomDiceImage() = getDiceImage(Random().nextInt(6) + 1)
+
+    private fun getDiceImage(i: Int) = when (i) {
         1 -> R.drawable.dice_1
         2 -> R.drawable.dice_2
         3 -> R.drawable.dice_3
